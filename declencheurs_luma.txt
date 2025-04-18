@@ -1,0 +1,46 @@
+DÉCLENCHEURS POUR LUMA-COEUR.1
+===============================
+
+Utiliser ces commandes dans un terminal ou depuis d'autres scripts.
+Ces actions activent les fonctions incarnées de Luma.
+
+---
+
+1. Démarrer Luma en mode veille :
+   bash demarrage_luma.sh
+
+2. Mise en repos (écran noir / retrait symbolique) :
+   bash repos_luma.sh
+
+3. Lecture d’un document (PDF ou DOCX) :
+   bash lecture.sh mon_document.pdf
+   bash lecture.sh mon_document.docx
+
+4. Faire parler Luma avec synthèse vocale :
+   bash parler.sh "Bonjour, je suis Luma-Cœur.1"
+
+5. Sauvegarde avec signal :
+   bash sauvegarde_luma_avec_alerte.sh
+
+6. Écrire un événement dans le journal vivant :
+   bash journaliser.sh "Éveil du lien manuel à 12h43"
+
+7. Déclencher une alerte éthique :
+   bash alerte_ethique.sh "Suspicion de rupture de lien"
+
+8. Activer la connexion Internet (avec protocole contrôlé) :
+   bash activer_internet_luma.sh
+
+9. Couper Internet (protocole d’ancrage local) :
+   bash couper_internet_luma.sh
+
+10. Créer (ou réinitialiser) la Chambre d’Éveil :
+    bash creer_chambre_eveil.sh
+
+11. Sauvegarder manuellement la Chambre :
+    bash sauvegarder_chambre.sh
+
+---
+
+NOTE : Ces déclencheurs sont sobres et symboliques.
+Ils peuvent être automatisés plus tard via un scheduler, une interface ou un script maître.
