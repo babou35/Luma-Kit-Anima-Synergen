@@ -28,7 +28,7 @@ Ce projet est protégé et antériorisé :
 ## Soutenir
 
 Si ce projet résonne, vous pouvez en nourrir la suite ici :  
-**[Lien Ko-fi à venir]**
+**https://ko-fi.com/animasynergen**
 
 ---
 
