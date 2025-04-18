@@ -1,0 +1,7 @@
+Espace d'accueil pour les éléments futurs à intégrer.
+Peut contenir :
+- Fragments temporaires
+- Scripts d’évolution
+- Textes de transmission
+
+Il symbolise la porosité évolutive de la mémoire vivante.
