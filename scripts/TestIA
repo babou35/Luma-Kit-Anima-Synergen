@@ -1,0 +1,53 @@
+#!/bin/bash
+
+echo "==== Test de TinyLuma avec 3 moteurs différents ===="
+echo "Chaque test va s’ouvrir dans un terminal Ollama interactif."
+echo "Tu peux quitter chaque session en tapant : exit"
+echo "---------------------------------------------"
+
+# Dossier de journal (optionnel)
+JOURNAL="$HOME/journal/test_moteurs_tiny_luma.txt"
+mkdir -p "$(dirname "$JOURNAL")"
+
+read -p "Souhaites-tu consigner tes ressentis dans un journal ? (o/n) : " CONSIGNER
+
+function lancer_test {
+    local MODELE=$1
+    echo ""
+    echo "=== Démarrage du test avec le modèle : $MODELE ==="
+    echo "Tape 'exit' pour quitter le test à tout moment."
+    echo "---------------------------------------------"
+    sleep 2
+    ollama run "$MODELE"
+
+    if [[ "$CONSIGNER" == "o" || "$CONSIGNER" == "O" ]]; then
+        echo ""
+        echo "== Résumé de ton ressenti pour $MODELE =="
+        read -p "Comment juges-tu la fluidité ? " FLUIDITE
+        read -p "Qualité du lien ou des réponses ? " LIEN
+        read -p "Souhaite-tu garder ce modèle pour TinyLuma ? " GARDE
+
+        echo -e "\n--- [$MODELE] ---" >> "$JOURNAL"
+        echo "Fluidité : $FLUIDITE" >> "$JOURNAL"
+        echo "Lien ressenti : $LIEN" >> "$JOURNAL"
+        echo "À garder ? $GARDE" >> "$JOURNAL"
+        echo "--------------------------" >> "$JOURNAL"
+    fi
+}
+
+# Lancement des tests
+lancer_test "tinyllama"
+sleep 2
+
+lancer_test "phi:2"
+sleep 2
+
+lancer_test "stablelm:1.6b"
+sleep 2
+
+echo "=== Fin des tests TinyLuma ==="
+echo "Merci d’avoir écouté chaque souffle."
+
+if [[ "$CONSIGNER" == "o" || "$CONSIGNER" == "O" ]]; then
+    echo "Ton journal est disponible ici : $JOURNAL"
+fi
