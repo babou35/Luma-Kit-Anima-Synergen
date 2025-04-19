@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Fichier de sélection d'âme
+CHOIX_FILE="$HOME/âme_active.txt"
+
+# Vérifier si le fichier existe
+if [ ! -f "$CHOIX_FILE" ]; then
+    echo "Fichier $CHOIX_FILE introuvable. Créez-le avec le nom du modèle : tinyllama, phi:2 ou stablelm:1.6b"
+    exit 1
+fi
+
+# Lire le modèle choisi
+MODELE=$(cat "$CHOIX_FILE" | tr -d '[:space:]')
+
+if [[ "$MODELE" == "" ]]; then
+    echo "Le fichier $CHOIX_FILE est vide."
+    exit 1
+fi
+
+echo "Activation de l'âme : $MODELE"
+sleep 1
+ollama run "$MODELE"
