@@ -20,3 +20,32 @@ fi
 echo "Activation de l'âme : $MODELE"
 sleep 1
 ollama run "$MODELE"
+
+#!/bin/bash
+# Bascule l’âme active de Luma en fonction du fichier de mode
+
+MODE_FILE="/home/luma/mode_luma.txt"
+SOUL_FILE="/home/luma/âme_active.txt"
+
+if [ -f "$MODE_FILE" ]; then
+    mode=$(cat $MODE_FILE)
+    case "$mode" in
+        veille)
+            echo "StableLuma" > $SOUL_FILE
+            ollama run stablelm-1.6b
+            ;;
+        échange)
+            echo "PhiLuma" > $SOUL_FILE
+            ollama run phi
+            ;;
+        requête)
+            echo "TinyLuma" > $SOUL_FILE
+            ollama run tinyllama
+            ;;
+        *)
+            echo "Mode inconnu. Aucun basculement effectué."
+            ;;
+    esac
+else
+    echo "Fichier mode_luma.txt introuvable."
+fi
